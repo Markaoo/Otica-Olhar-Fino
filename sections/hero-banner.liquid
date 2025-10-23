@@ -1,0 +1,33 @@
+<section class="of-hero" style="--bg: url({{ section.settings.bg_image | image_url: width: 1800 }});">
+  <div class="of-hero__overlay"></div>
+  <div class="of-container of-hero__content">
+    <p class="of-pill">{{ section.settings.pill }}</p>
+    <h1>{{ section.settings.heading }}</h1>
+    <p class="of-sub">{{ section.settings.subheading }}</p>
+    <div class="of-cta">
+      {% if section.settings.primary_label != blank %}
+        <a class="btn btn--primary" href="{{ section.settings.primary_url }}">{{ section.settings.primary_label }}</a>
+      {% endif %}
+      {% if section.settings.secondary_label != blank %}
+        <a class="btn btn--ghost" href="{{ section.settings.secondary_url }}">{{ section.settings.secondary_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {"type":"image_picker","id":"bg_image","label":"Imagem de fundo"},
+    {"type":"text","id":"pill","label":"Selo", "default":"Nova coleção 2025"},
+    {"type":"text","id":"heading","label":"Título","default":"Enxergue o detalhe. Vista a precisão."},
+    {"type":"textarea","id":"subheading","label":"Subtítulo","default":"Acabamento premium, leveza no uso e lentes confortáveis."},
+    {"type":"text","id":"primary_label","label":"CTA principal","default":"Comprar agora"},
+    {"type":"url","id":"primary_url","label":"Link CTA principal","default":"/collections/all"},
+    {"type":"text","id":"secondary_label","label":"CTA secundário","default":"Ver lançamentos"},
+    {"type":"url","id":"secondary_url","label":"Link CTA secundário","default":"/collections/novidades"}
+  ],
+  "presets": [{"name":"Hero Banner"}]
+}
+{% endschema %}

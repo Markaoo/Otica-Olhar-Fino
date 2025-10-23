@@ -1,0 +1,37 @@
+{% assign grid_collection = section.settings.collection %}
+{% if grid_collection == blank %}
+  {% assign grid_collection = collections['all'] %}
+{% else %}
+  {% assign grid_collection = collections[section.settings.collection] %}
+{% endif %}
+
+<section class="of-grid of-container">
+  {% if section.settings.title != blank %}
+    <h2 class="of-grid__title">{{ section.settings.title }}</h2>
+  {% endif %}
+
+  <div class="of-grid__wrap">
+    {% for product in grid_collection.products limit: section.settings.limit %}
+      {% render 'product-card', product: product %}
+    {% endfor %}
+  </div>
+
+  {% if section.settings.show_view_all and grid_collection.url %}
+    <div class="of-grid__more">
+      <a class="btn btn--ghost" href="{{ grid_collection.url }}">Ver coleção</a>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Grade de produtos",
+  "settings": [
+    {"type":"text","id":"title","label":"Título","default":"Destaques"},
+    {"type":"collection","id":"collection","label":"Coleção"},
+    {"type":"range","id":"limit","min":1,"max":24,"step":1,"default":9,"label":"Quantidade"},
+    {"type":"checkbox","id":"show_view_all","default":true,"label":"Mostrar botão 'Ver coleção'"}
+  ],
+  "presets": [{"name":"Grade de produtos"}]
+}
+{% endschema %}

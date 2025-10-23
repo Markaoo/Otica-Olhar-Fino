@@ -1,0 +1,26 @@
+<article class="of-card">
+  <a class="of-card__thumb" href="{{ product.url }}">
+    {% if product.featured_image %}
+      <img loading="lazy" src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}">
+    {% else %}
+      <div class="of-card__placeholder">Olhar Fino</div>
+    {% endif %}
+  </a>
+  <div class="of-card__body">
+    <h3 class="of-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <div class="of-card__price">
+      {% if product.compare_at_price_max > product.price %}
+        <span class="old">{{ product.compare_at_price_max | money }}</span>
+      {% endif %}
+      <span class="current">{{ product.price | money }}</span>
+    </div>
+
+    {% assign first_available = product.selected_or_first_available_variant %}
+    <form method="post" action="/cart/add" class="of-card__form">
+      <input type="hidden" name="id" value="{{ first_available.id }}">
+      <button type="submit" class="btn btn--primary" {% unless first_available.available %}disabled{% endunless %}>
+        {% if first_available.available %}Comprar{% else %}Esgotado{% endif %}
+      </button>
+    </form>
+  </div>
+</article>

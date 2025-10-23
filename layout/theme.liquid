@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% if page_title %}{{ page_title }} — {% endif %}{{ shop.name }}</title>
+    <meta name="description" content="{{ page_description | default: shop.meta_description }}">
+
+    {{ content_for_header }}
+    {{ 'theme.css.liquid' | asset_url | stylesheet_tag }}
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  </head>
+  <body class="of-body">
+    <header>
+      {% section 'header' %}
+    </header>
+
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    <footer>
+      {% section 'footer' %}
+    </footer>
+  </body>
+</html>

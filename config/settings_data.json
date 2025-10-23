@@ -1,0 +1,14 @@
+{
+  "current": "default",
+  "presets": {
+    "default": {
+      "theme": {
+        "primary_color": "#0a2a5e",
+        "main_menu": "main-menu",
+        "instagram_url": "",
+        "whatsapp_url": ""
+      },
+      "sections": {}
+    }
+  }
+}

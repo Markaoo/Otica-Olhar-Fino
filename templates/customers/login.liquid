@@ -1,0 +1,10 @@
+{% layout none %}
+<section class="of-container" style="padding:40px 0;color:#fff;">
+  <h1>Entrar</h1>
+  {% form 'customer_login' %}
+    {{ form.errors | default_errors }}
+    <input type="email" name="customer[email]" placeholder="E-mail" required>
+    <input type="password" name="customer[password]" placeholder="Senha" required>
+    <button type="submit" class="btn btn--primary">Entrar</button>
+  {% endform %}
+</section>

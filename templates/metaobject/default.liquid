@@ -1,0 +1,6 @@
+<section class="of-container" style="padding:40px 0;color:#fff;">
+  <h1>{{ metaobject.type | capitalize }}: {{ metaobject.handle }}</h1>
+  {% for field in metaobject.fields %}
+    <p><strong>{{ field.key }}</strong>: {{ field.value }}</p>
+  {% endfor %}
+</section>

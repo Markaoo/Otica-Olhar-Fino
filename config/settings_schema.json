@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Geral",
+    "settings": [
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Cor primária",
+        "default": "#0a2a5e"
+      },
+      {
+        "type": "link_list",
+        "id": "main_menu",
+        "label": "Menu principal",
+        "default": "main-menu"
+      },
+      {
+        "type": "url",
+        "id": "instagram_url",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "whatsapp_url",
+        "label": "WhatsApp"
+      }
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {}
+    },
+    "grid": {
+      "type": "product-grid",
+      "settings": {
+        "title": "Novidades",
+        "limit": 9
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "grid"
+  ]
+}

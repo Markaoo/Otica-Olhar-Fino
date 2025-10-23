@@ -1,0 +1,34 @@
+<section class="of-footer">
+  <div class="of-container of-footer__grid">
+    <div>
+      <div class="of-logo">Olhar <span>Fino</span></div>
+      <p>Óculos com design atemporal e conforto real — ver bem é viver melhor.</p>
+      <small>© {{ 'now' | date: '%Y' }} {{ shop.name }}</small>
+    </div>
+    <div>
+      <h4>{{ 'footer.support' | t }}</h4>
+      <ul>
+        <li><a href="/policies/refund-policy">Trocas e devoluções</a></li>
+        <li><a href="/policies/shipping-policy">Prazos e envios</a></li>
+        <li><a href="/pages/contato">Fale conosco</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Redes</h4>
+      <ul>
+        {% if settings.instagram_url != blank %}<li><a href="{{ settings.instagram_url }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
+        {% if settings.whatsapp_url != blank %}<li><a href="{{ settings.whatsapp_url }}" target="_blank" rel="noopener">WhatsApp</a></li>{% endif %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Rodapé",
+  "settings": [
+    {"type":"url","id":"instagram_url","label":"Instagram"},
+    {"type":"url","id":"whatsapp_url","label":"WhatsApp"}
+  ]
+}
+{% endschema %}

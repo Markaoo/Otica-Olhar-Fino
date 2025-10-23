@@ -1,0 +1,33 @@
+{% comment %} Navegação simples usando o menu principal configurado na loja {% endcomment %}
+<section class="of-header">
+  <div class="of-container of-header__wrap">
+    <a class="of-logo" href="/">Olhar <span>Fino</span></a>
+
+    <nav class="of-nav">
+      {% assign main_menu = linklists[settings.main_menu] %}
+      {% if main_menu.links.size > 0 %}
+        <ul>
+          {% for link in main_menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </nav>
+
+    <a class="of-cart" href="/cart">{{ 'general.cart' | t }} ({{ cart.item_count }})</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cabeçalho",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Menu principal",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}
