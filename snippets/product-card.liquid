@@ -14,7 +14,6 @@
       {% endif %}
       <span class="current">{{ product.price | money }}</span>
     </div>
-
     {% assign first_available = product.selected_or_first_available_variant %}
     <form method="post" action="/cart/add" class="of-card__form">
       <input type="hidden" name="id" value="{{ first_available.id }}">
